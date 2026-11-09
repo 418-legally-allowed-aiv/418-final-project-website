@@ -60,11 +60,11 @@ GPUs need a high parallel workload, and there is unavoidable sequentialness and 
 
 ### Plan to Achieve
 
-We hope to implement a function version of chunked recirculation such that when it is run with $K = 1$ where $K$ is the number of tokens per chunk, its performance closely follows the sequential recirculation. The prefill latency and memory usage will be measured for at least 4 different chunk sizes against the existing sequential baseline, providing a proof of concept. We will also evaluate the perplexity of such chunks and compare them against the baseline sequential implementation described in the paper. With this analysis, we will provide a deliverable that analyzes and explains the speedup and its limitations from the profiling done, as well as a synchronization analysis done similar to those done in previous assignments.
+We hope to implement a function version of chunked recirculation such that when it is run with K = 1 where K is the number of tokens per chunk, its performance closely follows the sequential recirculation. The prefill latency and memory usage will be measured for at least 4 different chunk sizes against the existing sequential baseline, providing a proof of concept. We will also evaluate the perplexity of such chunks and compare them against the baseline sequential implementation described in the paper. With this analysis, we will provide a deliverable that analyzes and explains the speedup and its limitations from the profiling done, as well as a synchronization analysis done similar to those done in previous assignments.
 
 ### Hope to Achieve
 
-We hope to achieve at least 2$\times$ the prefill speedup with minimal increase in perplexity on the Booksum/Chapter dataset with a specific configuration of chunks. With the remaining time, we would want to evaluate the effects of chunking and, if the initial implementation provided optimistic speedup numbers, investigate further optimizations for this specific algorithm.
+We hope to achieve at least 2× the prefill speedup with minimal increase in perplexity on the Booksum/Chapter dataset with a specific configuration of chunks. With the remaining time, we would want to evaluate the effects of chunking and, if the initial implementation provided optimistic speedup numbers, investigate further optimizations for this specific algorithm.
 
 If the speedup on the initial chunking implementation is not significant, or comes at a high cost of perplexity, we can conclude the project by clearly illustrating the bottlenecks of this algorithm, and proposing possible alternatives.
 
@@ -78,9 +78,9 @@ We initially plan to target a single GPU, since the main parallelism we want to 
 
 1. **Week 1 (Nov 9–15):** Set up environments and platforms needed, run and profile existing recirculation implementation, and inspect the related prefill logic to form initial ideas of parallelization.
 
-2. **Week 2 (Nov 16–22):** Implement chunked prefill, at least have $K = 1$ with the exact same perplexity as the initial recirculation implementation.
+2. **Week 2 (Nov 16–22):** Implement chunked prefill, at least have K = 1 with the exact same perplexity as the initial recirculation implementation.
 
-3. **Week 3 (Nov 23–29):** Finish implementation for $K > 1$, submit milestone report (NOV 23), test multiple chunk sizes for correctness. Set up evaluation for speedup and perplexity.
+3. **Week 3 (Nov 23–29):** Finish implementation for K > 1, submit milestone report (NOV 23), test multiple chunk sizes for correctness. Set up evaluation for speedup and perplexity.
 
 4. **Week 4 (Nov 30–Dec 6):** Run and profile new chunked implementation. If enough time, investigate a further optimization, or alternative approach, depending on the outcome of the proof of concept.
 
